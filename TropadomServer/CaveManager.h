@@ -14,6 +14,8 @@ public:
 
 	bool isAir(int bX, int bY);
 
+	std::vector <std::pair <int, int>> genCavePoints(int bX);
+
 	~CaveManager();
 
 private:

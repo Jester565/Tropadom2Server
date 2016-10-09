@@ -10,4 +10,6 @@ TropClient::TropClient(boost::shared_ptr<TCPConnection> tcpConnection, Server* s
 
 TropClient::~TropClient()
 {
+	delete terrainTracker;
+	terrainTracker = nullptr;
 }

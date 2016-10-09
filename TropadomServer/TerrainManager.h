@@ -3,34 +3,45 @@
 #include <vector>
 #include <list>
 #include <boost/thread.hpp>
+#include <unordered_map>
 
 class TropServer;
 class CaveManager;
 class PerlinManager;
+class DepositManager;
 
 const static int COL_HEIGHT = 600;
-const static int LOAD_COL_W = 80;
-const static int LOAD_COL_H = 66;
+const static int LOAD_COL_W = 100;
+const static int LOAD_COL_H = 68;
+
+static const std::unordered_map <uint16_t, bool> TransparentTypes{ {0, true}, {1, false}, {2, false}, {3, false}, {4, false} };
 
 class WorldGenerator
 {
 public:
 	explicit WorldGenerator(int64_t seed);
 	PerlinManager* groundPerlinManager;
+	PerlinManager* dirtPerlinManager;
 	CaveManager* caveManager;
+	DepositManager* ironManager;
+
 	~WorldGenerator();
 };
 
 class BlockColumn
 {
 public:
-	BlockColumn(int64_t bX);
+	BlockColumn(int64_t bX, uint32_t groundY);
 
 	BlockColumn(WorldGenerator* worldGen, int64_t bX);
 
 	std::vector <uint16_t> blocks;
 
 	int64_t bX;
+
+	uint32_t groundY;
+
+	void setBlock(uint32_t bY, uint16_t type, bool* groundHChanged);
 
 	~BlockColumn();
 
@@ -106,4 +117,3 @@ private:
 	WorldGenerator* worldGenerator;
 	TropServer* tropServer;
 };
-

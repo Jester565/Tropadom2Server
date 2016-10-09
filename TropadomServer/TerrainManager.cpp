@@ -5,6 +5,7 @@
 #include "TropServer.h"
 #include "TropClientManager.h"
 #include "TropClient.h"
+#include "DepositManager.h"
 #include <IPacket.h>
 #include <OPacket.h>
 #include <fstream>
@@ -209,6 +210,7 @@ bool TerrainManager::save(const std::string& saveFileName)
 		for (auto bcIt = tsIt->blockColumns.begin(); bcIt != tsIt->blockColumns.end(); bcIt++)
 		{
 			bcIt->blocksMutex.lock_shared();
+			savePack.add_blocktypes(bcIt->groundY);
 			for (int i = 0; i < COL_HEIGHT; i++)
 			{
 				savePack.add_blocktypes(bcIt->blocks.at(i));
@@ -269,12 +271,16 @@ bool TerrainManager::load(const std::string& saveFileName)
 			seed |= ((uint64_t)(seedData.at(i) & 0xff)) << (i * 8);
 		}
 	}
-	std::cout << seed << std::endl;
-	std::vector <char> sizeData(4);
-	saveFile.read(sizeData.data(), 4);
-	uint32_t packSize = 0;
-	while (!saveFile.eof())
+	std::cout << "LOADING WORLD: " << seed << std::endl;
+	while (true)
 	{
+		std::vector <char> sizeData(4);
+		saveFile.read(sizeData.data(), 4);
+		if (saveFile.eof())
+		{
+			break;
+		}
+		uint32_t packSize = 0;
 		if (!bEndian)
 		{
 			packSize = ((sizeData.at(0) & 0xff) << 24) | ((sizeData.at(1) & 0xff) << 16) |
@@ -289,18 +295,18 @@ bool TerrainManager::load(const std::string& saveFileName)
 		saveFile.read(packData.data(), packSize);
 		TropPackets::PackE0 savePack;
 		savePack.ParseFromArray(packData.data(), packSize);
-		uint64_t bX = savePack.bx();
+		int64_t bX = savePack.bx();
 		terrainSections.emplace_back();
 		auto tsIt = terrainSections.end();
 		tsIt--;
-		for (int i = 0; i < savePack.blocktypes_size(); i+=COL_HEIGHT)
+		for (int i = 0; i < savePack.blocktypes_size(); i+=COL_HEIGHT + 1)
 		{
-			tsIt->blockColumns.emplace_back(bX);
+			tsIt->blockColumns.emplace_back(bX, savePack.blocktypes().Get(i));
 			auto bcIt = tsIt->blockColumns.end();
-			bcIt--;
-			for (int j = 0; j < COL_HEIGHT; j++)
+			bcIt--; 
+			for (int j = 1; j < COL_HEIGHT + 1; j++)
 			{
-				bcIt->blocks.at(j) = savePack.blocktypes().Get(i + j);
+				bcIt->blocks.at(j - 1) = savePack.blocktypes().Get(i + j);
 			}
 			bX++;
 		}
@@ -338,6 +344,7 @@ void TerrainManager::keyC0(boost::shared_ptr<IPacket> iPack)
 	for (int i = 0; i < LOAD_COL_W; i++)
 	{
 		sender->getTerrainTracker()->bcIterHigh->blocksMutex.lock_shared();
+		packC1.add_groundys(sender->getTerrainTracker()->bcIterHigh->groundY);
 		for (int j = 0; j < LOAD_COL_H; j++)
 		{
 		 	if (bY + j < 0 || bY + j >= COL_HEIGHT)
@@ -384,6 +391,7 @@ void TerrainManager::keyC2(boost::shared_ptr<IPacket> iPack)
 		{
 			shiftRight(sender->getTerrainTracker());
 			packC3.set_bx(sender->getTerrainTracker()->bcIterHigh->bX);
+			packC3.set_groundy(sender->getTerrainTracker()->bcIterHigh->groundY);
 			sender->getTerrainTracker()->bcIterHigh->blocksMutex.lock_shared();
 			for (int j = 0; j < LOAD_COL_H; j++)
 			{
@@ -402,6 +410,7 @@ void TerrainManager::keyC2(boost::shared_ptr<IPacket> iPack)
 		{
 			shiftLeft(sender->getTerrainTracker());
 			packC3.set_bx(sender->getTerrainTracker()->bcIterLow->bX);
+			packC3.set_groundy(sender->getTerrainTracker()->bcIterLow->groundY);
 			sender->getTerrainTracker()->bcIterLow->blocksMutex.lock_shared();
 			for (int j = 0; j < LOAD_COL_H; j++)
 			{
@@ -494,7 +503,8 @@ void TerrainManager::keyD0(boost::shared_ptr<IPacket> iPack)
 			it++;
 		}
 		it->blocksMutex.lock();
-		it->blocks.at(packD0.by()) = packD0.type();
+		bool groundHChanged = false;
+		it->setBlock(packD0.by(), packD0.type(), &groundHChanged);
 		it->blocksMutex.unlock();
 		TropClientManager* tropClientManager = (TropClientManager*)((TropServer*)tropServer)->getClientManager();
 		std::vector <TropClient*> inRangeClients = tropClientManager->getInRange(packD0.bx(), packD0.by(), sender);
@@ -507,13 +517,27 @@ void TerrainManager::keyD0(boost::shared_ptr<IPacket> iPack)
 			}
 			opD0->setData(iPack->getData());
 			tropClientManager->send(opD0);
+			if (groundHChanged)
+			{
+				TropPackets::PackD1 packD1;
+				packD1.set_bx(packD0.bx());
+				packD1.set_groundy(it->groundY);
+				boost::shared_ptr <OPacket> opD1(new OPacket("D1", 0));
+				opD1->addSendToID(sender->getID());
+				for (int i = 0; i < inRangeClients.size(); i++)
+				{
+					opD1->addSendToID(inRangeClients.at(i)->getID());
+				}
+				opD1->setData(boost::make_shared <std::string>(packD1.SerializeAsString()));
+				tropClientManager->send(opD1);
+			}
 		}
 	}
 	sender->getTerrainTracker()->posMutex.unlock();
 }
 
-BlockColumn::BlockColumn(int64_t bX)
-	:bX(bX)
+BlockColumn::BlockColumn(int64_t bX, uint32_t groundY)
+	:bX(bX), groundY(groundY)
 {
 	blocks.resize(COL_HEIGHT);
 }
@@ -521,22 +545,87 @@ BlockColumn::BlockColumn(int64_t bX)
 BlockColumn::BlockColumn(WorldGenerator* worldGen, int64_t bX)
 	:bX(bX)
 {
-	int groundY = worldGen->groundPerlinManager->getPerlinVal(bX, 100, 60);
+	groundY = COL_HEIGHT;
+	int iGroundY = worldGen->groundPerlinManager->getPerlinVal(bX, 100, 60);
+	int iDirtY = worldGen->dirtPerlinManager->getPerlinVal(bX, 7, 2);
 	blocks.reserve(COL_HEIGHT);
 	for (int i = 0; i < COL_HEIGHT; i++)
 	{
-		if (i >= 0 && i <= groundY)
+		if (i >= 0 && i < iGroundY)
 		{
 			blocks.push_back(0);
 			continue;
 		}
-		if (worldGen->caveManager->isAir(bX, i))
+		std::vector <std::pair <int, int>> cavePoints = worldGen->caveManager->genCavePoints(bX);
+		bool inCave = false;
+		for (int j = 0; j < cavePoints.size(); j++)
 		{
-			blocks.push_back(0);
+			if (cavePoints.at(j).first <= i && cavePoints.at(j).second >= i)
+			{
+				blocks.push_back(0);
+				inCave = true;
+				break;
+			}
+		}
+		if (inCave)
+		{
 			continue;
 		}
-		blocks.push_back(1);
+		if (groundY == COL_HEIGHT)
+		{
+			groundY = i;
+		}
+		if (i == iGroundY)
+		{
+			blocks.push_back(2);
+			continue;
+		}
+		else if (i < iGroundY + iDirtY)
+		{
+			blocks.push_back(3);
+			continue;
+		}
+		if (worldGen->ironManager->isOre(bX, i))
+		{
+			blocks.push_back(5);
+			continue;
+		}
+		blocks.push_back(4);
 	}
+}
+
+void BlockColumn::setBlock(uint32_t bY, uint16_t type, bool* groundHChanged)
+{
+	if (bY < 0 && bY >= COL_HEIGHT)
+	{
+		return;
+	}
+	bool transparent = TransparentTypes.at(type);
+	if (bY < groundY)
+	{
+		if (!transparent)
+		{
+			groundY = bY;
+			*groundHChanged = true;
+		}
+	}
+	else if (bY == groundY)
+	{
+		if (transparent)
+		{
+			int i = bY + 1;
+			for (; i < COL_HEIGHT; i++)
+			{
+				if (!TransparentTypes.at(blocks.at(i)))
+				{
+					break;
+				}
+			}
+			groundY = i;
+			*groundHChanged = true;
+		}
+	}
+	blocks.at(bY) = type;
 }
 
 BlockColumn::~BlockColumn()
@@ -559,7 +648,9 @@ TerrainSection::~TerrainSection()
 WorldGenerator::WorldGenerator(int64_t seed)
 {
 	groundPerlinManager = new PerlinManager(seed);
-	caveManager = new CaveManager(seed, 60, 300);
+	caveManager = new CaveManager(seed * .99, 60, 300);
+	dirtPerlinManager = new PerlinManager(seed / 1.3);
+	ironManager = new DepositManager(seed, 100, 4, 20, 2);
 }
 
 WorldGenerator::~WorldGenerator()
@@ -568,4 +659,8 @@ WorldGenerator::~WorldGenerator()
 	groundPerlinManager = nullptr;
 	delete caveManager;
 	caveManager = nullptr;
+	delete dirtPerlinManager;
+	dirtPerlinManager = nullptr;
+	delete ironManager;
+	ironManager = nullptr;
 }

@@ -50,12 +50,18 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* PackD0_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   PackD0_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PackD1_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PackD1_reflection_ = NULL;
 const ::google::protobuf::Descriptor* PackE0_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   PackE0_reflection_ = NULL;
 const ::google::protobuf::Descriptor* PackF0_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   PackF0_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PackG0_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PackG0_reflection_ = NULL;
 
 }  // namespace
 
@@ -82,8 +88,10 @@ void protobuf_AssignDesc_Trop_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackA0, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackA0, _is_default_instance_));
   PackB0_descriptor_ = file->message_type(1);
-  static const int PackB0_offsets_[1] = {
+  static const int PackB0_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackB0, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackB0, mx_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackB0, my_),
   };
   PackB0_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -127,8 +135,10 @@ void protobuf_AssignDesc_Trop_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackB2, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackB2, _is_default_instance_));
   PackB3_descriptor_ = file->message_type(4);
-  static const int PackB3_offsets_[1] = {
+  static const int PackB3_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackB3, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackB3, mx_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackB3, my_),
   };
   PackB3_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -158,8 +168,9 @@ void protobuf_AssignDesc_Trop_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackC0, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackC0, _is_default_instance_));
   PackC1_descriptor_ = file->message_type(6);
-  static const int PackC1_offsets_[1] = {
+  static const int PackC1_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackC1, blockarr_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackC1, groundys_),
   };
   PackC1_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -189,11 +200,12 @@ void protobuf_AssignDesc_Trop_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackC2, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackC2, _is_default_instance_));
   PackC3_descriptor_ = file->message_type(8);
-  static const int PackC3_offsets_[4] = {
+  static const int PackC3_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackC3, bx_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackC3, by_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackC3, horizontal_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackC3, blockarr_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackC3, groundy_),
   };
   PackC3_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -223,7 +235,23 @@ void protobuf_AssignDesc_Trop_2eproto() {
       sizeof(PackD0),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackD0, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackD0, _is_default_instance_));
-  PackE0_descriptor_ = file->message_type(10);
+  PackD1_descriptor_ = file->message_type(10);
+  static const int PackD1_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackD1, bx_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackD1, groundy_),
+  };
+  PackD1_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      PackD1_descriptor_,
+      PackD1::default_instance_,
+      PackD1_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(PackD1),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackD1, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackD1, _is_default_instance_));
+  PackE0_descriptor_ = file->message_type(11);
   static const int PackE0_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackE0, bx_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackE0, blocktypes_),
@@ -239,7 +267,7 @@ void protobuf_AssignDesc_Trop_2eproto() {
       sizeof(PackE0),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackE0, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackE0, _is_default_instance_));
-  PackF0_descriptor_ = file->message_type(11);
+  PackF0_descriptor_ = file->message_type(12);
   static const int PackF0_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackF0, msg_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackF0, chattype_),
@@ -255,6 +283,24 @@ void protobuf_AssignDesc_Trop_2eproto() {
       sizeof(PackF0),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackF0, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackF0, _is_default_instance_));
+  PackG0_descriptor_ = file->message_type(13);
+  static const int PackG0_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackG0, mx_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackG0, my_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackG0, mvx_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackG0, mvy_),
+  };
+  PackG0_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      PackG0_descriptor_,
+      PackG0::default_instance_,
+      PackG0_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(PackG0),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackG0, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackG0, _is_default_instance_));
 }
 
 namespace {
@@ -288,9 +334,13 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       PackD0_descriptor_, &PackD0::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      PackD1_descriptor_, &PackD1::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       PackE0_descriptor_, &PackE0::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       PackF0_descriptor_, &PackF0::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      PackG0_descriptor_, &PackG0::default_instance());
 }
 
 }  // namespace
@@ -316,10 +366,14 @@ void protobuf_ShutdownFile_Trop_2eproto() {
   delete PackC3_reflection_;
   delete PackD0::default_instance_;
   delete PackD0_reflection_;
+  delete PackD1::default_instance_;
+  delete PackD1_reflection_;
   delete PackE0::default_instance_;
   delete PackE0_reflection_;
   delete PackF0::default_instance_;
   delete PackF0_reflection_;
+  delete PackG0::default_instance_;
+  delete PackG0_reflection_;
 }
 
 void protobuf_AddDesc_Trop_2eproto() {
@@ -330,17 +384,22 @@ void protobuf_AddDesc_Trop_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\nTrop.proto\022\013TropPackets\"\033\n\006PackA0\022\021\n\tt"
-    "imeStamp\030\001 \001(\003\"\026\n\006PackB0\022\014\n\004name\030\001 \001(\t\"\024"
-    "\n\006PackB1\022\n\n\002id\030\001 \001(\r\"\024\n\006PackB2\022\n\n\002id\030\001 \001"
-    "(\r\"\026\n\006PackB3\022\014\n\004name\030\001 \001(\t\" \n\006PackC0\022\n\n\002"
-    "bX\030\001 \001(\003\022\n\n\002bY\030\002 \001(\003\"\036\n\006PackC1\022\024\n\010blockA"
-    "rr\030\001 \003(\rB\002\020\001\"3\n\006PackC2\022\025\n\rshiftPositive\030"
-    "\001 \001(\010\022\022\n\nhorizontal\030\002 \001(\010\"J\n\006PackC3\022\n\n\002b"
-    "X\030\001 \001(\003\022\n\n\002bY\030\002 \001(\003\022\022\n\nhorizontal\030\003 \001(\010\022"
-    "\024\n\010blockArr\030\004 \003(\rB\002\020\001\".\n\006PackD0\022\n\n\002bX\030\001 "
-    "\001(\003\022\n\n\002bY\030\002 \001(\003\022\014\n\004type\030\003 \001(\r\"(\n\006PackE0\022"
-    "\n\n\002bX\030\001 \001(\003\022\022\n\nblockTypes\030\002 \003(\r\"\'\n\006PackF"
-    "0\022\013\n\003msg\030\001 \001(\t\022\020\n\010chatType\030\002 \001(\rb\006proto3", 480);
+    "imeStamp\030\001 \001(\003\".\n\006PackB0\022\014\n\004name\030\001 \001(\t\022\n"
+    "\n\002mX\030\002 \001(\002\022\n\n\002mY\030\003 \001(\002\"\024\n\006PackB1\022\n\n\002id\030\001"
+    " \001(\r\"\024\n\006PackB2\022\n\n\002id\030\001 \001(\r\".\n\006PackB3\022\014\n\004"
+    "name\030\001 \001(\t\022\n\n\002mX\030\002 \001(\002\022\n\n\002mY\030\003 \001(\002\" \n\006Pa"
+    "ckC0\022\n\n\002bX\030\001 \001(\003\022\n\n\002bY\030\002 \001(\003\"4\n\006PackC1\022\024"
+    "\n\010blockArr\030\001 \003(\rB\002\020\001\022\024\n\010groundYs\030\002 \003(\rB\002"
+    "\020\001\"3\n\006PackC2\022\025\n\rshiftPositive\030\001 \001(\010\022\022\n\nh"
+    "orizontal\030\002 \001(\010\"[\n\006PackC3\022\n\n\002bX\030\001 \001(\003\022\n\n"
+    "\002bY\030\002 \001(\003\022\022\n\nhorizontal\030\003 \001(\010\022\024\n\010blockAr"
+    "r\030\004 \003(\rB\002\020\001\022\017\n\007groundY\030\005 \001(\r\".\n\006PackD0\022\n"
+    "\n\002bX\030\001 \001(\003\022\n\n\002bY\030\002 \001(\003\022\014\n\004type\030\003 \001(\r\"%\n\006"
+    "PackD1\022\n\n\002bX\030\001 \001(\003\022\017\n\007groundY\030\002 \001(\r\"(\n\006P"
+    "ackE0\022\n\n\002bX\030\001 \001(\003\022\022\n\nblockTypes\030\002 \003(\r\"\'\n"
+    "\006PackF0\022\013\n\003msg\030\001 \001(\t\022\020\n\010chatType\030\002 \001(\r\":"
+    "\n\006PackG0\022\n\n\002mX\030\001 \001(\002\022\n\n\002mY\030\002 \001(\002\022\013\n\003mVX\030"
+    "\003 \001(\002\022\013\n\003mVY\030\004 \001(\002b\006proto3", 666);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Trop.proto", &protobuf_RegisterTypes);
   PackA0::default_instance_ = new PackA0();
@@ -353,8 +412,10 @@ void protobuf_AddDesc_Trop_2eproto() {
   PackC2::default_instance_ = new PackC2();
   PackC3::default_instance_ = new PackC3();
   PackD0::default_instance_ = new PackD0();
+  PackD1::default_instance_ = new PackD1();
   PackE0::default_instance_ = new PackE0();
   PackF0::default_instance_ = new PackF0();
+  PackG0::default_instance_ = new PackG0();
   PackA0::default_instance_->InitAsDefaultInstance();
   PackB0::default_instance_->InitAsDefaultInstance();
   PackB1::default_instance_->InitAsDefaultInstance();
@@ -365,8 +426,10 @@ void protobuf_AddDesc_Trop_2eproto() {
   PackC2::default_instance_->InitAsDefaultInstance();
   PackC3::default_instance_->InitAsDefaultInstance();
   PackD0::default_instance_->InitAsDefaultInstance();
+  PackD1::default_instance_->InitAsDefaultInstance();
   PackE0::default_instance_->InitAsDefaultInstance();
   PackF0::default_instance_->InitAsDefaultInstance();
+  PackG0::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Trop_2eproto);
 }
 
@@ -617,6 +680,8 @@ void PackA0::clear_timestamp() {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int PackB0::kNameFieldNumber;
+const int PackB0::kMXFieldNumber;
+const int PackB0::kMYFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PackB0::PackB0()
@@ -642,6 +707,8 @@ void PackB0::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  mx_ = 0;
+  my_ = 0;
 }
 
 PackB0::~PackB0() {
@@ -681,7 +748,20 @@ PackB0* PackB0::New(::google::protobuf::Arena* arena) const {
 }
 
 void PackB0::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<PackB0*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(mx_, my_);
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+
+#undef ZR_HELPER_
+#undef ZR_
+
 }
 
 bool PackB0::MergePartialFromCodedStream(
@@ -703,6 +783,36 @@ bool PackB0::MergePartialFromCodedStream(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "TropPackets.PackB0.name"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(21)) goto parse_mX;
+        break;
+      }
+
+      // optional float mX = 2;
+      case 2: {
+        if (tag == 21) {
+         parse_mX:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &mx_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(29)) goto parse_mY;
+        break;
+      }
+
+      // optional float mY = 3;
+      case 3: {
+        if (tag == 29) {
+         parse_mY:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &my_)));
+
         } else {
           goto handle_unusual;
         }
@@ -744,6 +854,16 @@ void PackB0::SerializeWithCachedSizes(
       1, this->name(), output);
   }
 
+  // optional float mX = 2;
+  if (this->mx() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->mx(), output);
+  }
+
+  // optional float mY = 3;
+  if (this->my() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->my(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:TropPackets.PackB0)
 }
 
@@ -761,6 +881,16 @@ void PackB0::SerializeWithCachedSizes(
         1, this->name(), target);
   }
 
+  // optional float mX = 2;
+  if (this->mx() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->mx(), target);
+  }
+
+  // optional float mY = 3;
+  if (this->my() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->my(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:TropPackets.PackB0)
   return target;
 }
@@ -773,6 +903,16 @@ int PackB0::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->name());
+  }
+
+  // optional float mX = 2;
+  if (this->mx() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // optional float mY = 3;
+  if (this->my() != 0) {
+    total_size += 1 + 4;
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -799,6 +939,12 @@ void PackB0::MergeFrom(const PackB0& from) {
 
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
+  if (from.mx() != 0) {
+    set_mx(from.mx());
+  }
+  if (from.my() != 0) {
+    set_my(from.my());
+  }
 }
 
 void PackB0::CopyFrom(const ::google::protobuf::Message& from) {
@@ -824,6 +970,8 @@ void PackB0::Swap(PackB0* other) {
 }
 void PackB0::InternalSwap(PackB0* other) {
   name_.Swap(&other->name_);
+  std::swap(mx_, other->mx_);
+  std::swap(my_, other->my_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -880,6 +1028,34 @@ void PackB0::clear_name() {
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:TropPackets.PackB0.name)
+}
+
+// optional float mX = 2;
+void PackB0::clear_mx() {
+  mx_ = 0;
+}
+ float PackB0::mx() const {
+  // @@protoc_insertion_point(field_get:TropPackets.PackB0.mX)
+  return mx_;
+}
+ void PackB0::set_mx(float value) {
+  
+  mx_ = value;
+  // @@protoc_insertion_point(field_set:TropPackets.PackB0.mX)
+}
+
+// optional float mY = 3;
+void PackB0::clear_my() {
+  my_ = 0;
+}
+ float PackB0::my() const {
+  // @@protoc_insertion_point(field_get:TropPackets.PackB0.mY)
+  return my_;
+}
+ void PackB0::set_my(float value) {
+  
+  my_ = value;
+  // @@protoc_insertion_point(field_set:TropPackets.PackB0.mY)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1340,6 +1516,8 @@ void PackB2::clear_id() {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int PackB3::kNameFieldNumber;
+const int PackB3::kMXFieldNumber;
+const int PackB3::kMYFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PackB3::PackB3()
@@ -1365,6 +1543,8 @@ void PackB3::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  mx_ = 0;
+  my_ = 0;
 }
 
 PackB3::~PackB3() {
@@ -1404,7 +1584,20 @@ PackB3* PackB3::New(::google::protobuf::Arena* arena) const {
 }
 
 void PackB3::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<PackB3*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(mx_, my_);
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+
+#undef ZR_HELPER_
+#undef ZR_
+
 }
 
 bool PackB3::MergePartialFromCodedStream(
@@ -1426,6 +1619,36 @@ bool PackB3::MergePartialFromCodedStream(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "TropPackets.PackB3.name"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(21)) goto parse_mX;
+        break;
+      }
+
+      // optional float mX = 2;
+      case 2: {
+        if (tag == 21) {
+         parse_mX:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &mx_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(29)) goto parse_mY;
+        break;
+      }
+
+      // optional float mY = 3;
+      case 3: {
+        if (tag == 29) {
+         parse_mY:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &my_)));
+
         } else {
           goto handle_unusual;
         }
@@ -1467,6 +1690,16 @@ void PackB3::SerializeWithCachedSizes(
       1, this->name(), output);
   }
 
+  // optional float mX = 2;
+  if (this->mx() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->mx(), output);
+  }
+
+  // optional float mY = 3;
+  if (this->my() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->my(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:TropPackets.PackB3)
 }
 
@@ -1484,6 +1717,16 @@ void PackB3::SerializeWithCachedSizes(
         1, this->name(), target);
   }
 
+  // optional float mX = 2;
+  if (this->mx() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->mx(), target);
+  }
+
+  // optional float mY = 3;
+  if (this->my() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->my(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:TropPackets.PackB3)
   return target;
 }
@@ -1496,6 +1739,16 @@ int PackB3::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->name());
+  }
+
+  // optional float mX = 2;
+  if (this->mx() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // optional float mY = 3;
+  if (this->my() != 0) {
+    total_size += 1 + 4;
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1522,6 +1775,12 @@ void PackB3::MergeFrom(const PackB3& from) {
 
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
+  if (from.mx() != 0) {
+    set_mx(from.mx());
+  }
+  if (from.my() != 0) {
+    set_my(from.my());
+  }
 }
 
 void PackB3::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1547,6 +1806,8 @@ void PackB3::Swap(PackB3* other) {
 }
 void PackB3::InternalSwap(PackB3* other) {
   name_.Swap(&other->name_);
+  std::swap(mx_, other->mx_);
+  std::swap(my_, other->my_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1603,6 +1864,34 @@ void PackB3::clear_name() {
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
   // @@protoc_insertion_point(field_set_allocated:TropPackets.PackB3.name)
+}
+
+// optional float mX = 2;
+void PackB3::clear_mx() {
+  mx_ = 0;
+}
+ float PackB3::mx() const {
+  // @@protoc_insertion_point(field_get:TropPackets.PackB3.mX)
+  return mx_;
+}
+ void PackB3::set_mx(float value) {
+  
+  mx_ = value;
+  // @@protoc_insertion_point(field_set:TropPackets.PackB3.mX)
+}
+
+// optional float mY = 3;
+void PackB3::clear_my() {
+  my_ = 0;
+}
+ float PackB3::my() const {
+  // @@protoc_insertion_point(field_get:TropPackets.PackB3.mY)
+  return my_;
+}
+ void PackB3::set_my(float value) {
+  
+  my_ = value;
+  // @@protoc_insertion_point(field_set:TropPackets.PackB3.mY)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1901,6 +2190,7 @@ void PackC0::clear_by() {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int PackC1::kBlockArrFieldNumber;
+const int PackC1::kGroundYsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PackC1::PackC1()
@@ -1963,6 +2253,7 @@ PackC1* PackC1::New(::google::protobuf::Arena* arena) const {
 
 void PackC1::Clear() {
   blockarr_.Clear();
+  groundys_.Clear();
 }
 
 bool PackC1::MergePartialFromCodedStream(
@@ -1985,6 +2276,24 @@ bool PackC1::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  1, 10, input, this->mutable_blockarr())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_groundYs;
+        break;
+      }
+
+      // repeated uint32 groundYs = 2 [packed = true];
+      case 2: {
+        if (tag == 18) {
+         parse_groundYs:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, this->mutable_groundys())));
+        } else if (tag == 16) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 1, 18, input, this->mutable_groundys())));
         } else {
           goto handle_unusual;
         }
@@ -2026,6 +2335,16 @@ void PackC1::SerializeWithCachedSizes(
       this->blockarr(i), output);
   }
 
+  // repeated uint32 groundYs = 2 [packed = true];
+  if (this->groundys_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(2, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(_groundys_cached_byte_size_);
+  }
+  for (int i = 0; i < this->groundys_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32NoTag(
+      this->groundys(i), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:TropPackets.PackC1)
 }
 
@@ -2044,6 +2363,20 @@ void PackC1::SerializeWithCachedSizes(
   for (int i = 0; i < this->blockarr_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteUInt32NoTagToArray(this->blockarr(i), target);
+  }
+
+  // repeated uint32 groundYs = 2 [packed = true];
+  if (this->groundys_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      2,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+      _groundys_cached_byte_size_, target);
+  }
+  for (int i = 0; i < this->groundys_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteUInt32NoTagToArray(this->groundys(i), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:TropPackets.PackC1)
@@ -2070,6 +2403,23 @@ int PackC1::ByteSize() const {
     total_size += data_size;
   }
 
+  // repeated uint32 groundYs = 2 [packed = true];
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->groundys_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        UInt32Size(this->groundys(i));
+    }
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
+    }
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _groundys_cached_byte_size_ = data_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -2091,6 +2441,7 @@ void PackC1::MergeFrom(const ::google::protobuf::Message& from) {
 void PackC1::MergeFrom(const PackC1& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   blockarr_.MergeFrom(from.blockarr_);
+  groundys_.MergeFrom(from.groundys_);
 }
 
 void PackC1::CopyFrom(const ::google::protobuf::Message& from) {
@@ -2116,6 +2467,7 @@ void PackC1::Swap(PackC1* other) {
 }
 void PackC1::InternalSwap(PackC1* other) {
   blockarr_.UnsafeArenaSwap(&other->blockarr_);
+  groundys_.UnsafeArenaSwap(&other->groundys_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -2159,6 +2511,36 @@ PackC1::blockarr() const {
 PackC1::mutable_blockarr() {
   // @@protoc_insertion_point(field_mutable_list:TropPackets.PackC1.blockArr)
   return &blockarr_;
+}
+
+// repeated uint32 groundYs = 2 [packed = true];
+int PackC1::groundys_size() const {
+  return groundys_.size();
+}
+void PackC1::clear_groundys() {
+  groundys_.Clear();
+}
+ ::google::protobuf::uint32 PackC1::groundys(int index) const {
+  // @@protoc_insertion_point(field_get:TropPackets.PackC1.groundYs)
+  return groundys_.Get(index);
+}
+ void PackC1::set_groundys(int index, ::google::protobuf::uint32 value) {
+  groundys_.Set(index, value);
+  // @@protoc_insertion_point(field_set:TropPackets.PackC1.groundYs)
+}
+ void PackC1::add_groundys(::google::protobuf::uint32 value) {
+  groundys_.Add(value);
+  // @@protoc_insertion_point(field_add:TropPackets.PackC1.groundYs)
+}
+ const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+PackC1::groundys() const {
+  // @@protoc_insertion_point(field_list:TropPackets.PackC1.groundYs)
+  return groundys_;
+}
+ ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+PackC1::mutable_groundys() {
+  // @@protoc_insertion_point(field_mutable_list:TropPackets.PackC1.groundYs)
+  return &groundys_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -2456,6 +2838,7 @@ const int PackC3::kBXFieldNumber;
 const int PackC3::kBYFieldNumber;
 const int PackC3::kHorizontalFieldNumber;
 const int PackC3::kBlockArrFieldNumber;
+const int PackC3::kGroundYFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PackC3::PackC3()
@@ -2482,6 +2865,7 @@ void PackC3::SharedCtor() {
   bx_ = GOOGLE_LONGLONG(0);
   by_ = GOOGLE_LONGLONG(0);
   horizontal_ = false;
+  groundy_ = 0u;
 }
 
 PackC3::~PackC3() {
@@ -2529,7 +2913,7 @@ void PackC3::Clear() {
 } while (0)
 
   ZR_(bx_, by_);
-  horizontal_ = false;
+  ZR_(horizontal_, groundy_);
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -2605,6 +2989,21 @@ bool PackC3::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(40)) goto parse_groundY;
+        break;
+      }
+
+      // optional uint32 groundY = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_groundY:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &groundy_)));
+
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2658,6 +3057,11 @@ void PackC3::SerializeWithCachedSizes(
       this->blockarr(i), output);
   }
 
+  // optional uint32 groundY = 5;
+  if (this->groundy() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->groundy(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:TropPackets.PackC3)
 }
 
@@ -2693,6 +3097,11 @@ void PackC3::SerializeWithCachedSizes(
       WriteUInt32NoTagToArray(this->blockarr(i), target);
   }
 
+  // optional uint32 groundY = 5;
+  if (this->groundy() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->groundy(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:TropPackets.PackC3)
   return target;
 }
@@ -2717,6 +3126,13 @@ int PackC3::ByteSize() const {
   // optional bool horizontal = 3;
   if (this->horizontal() != 0) {
     total_size += 1 + 1;
+  }
+
+  // optional uint32 groundY = 5;
+  if (this->groundy() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->groundy());
   }
 
   // repeated uint32 blockArr = 4 [packed = true];
@@ -2766,6 +3182,9 @@ void PackC3::MergeFrom(const PackC3& from) {
   if (from.horizontal() != 0) {
     set_horizontal(from.horizontal());
   }
+  if (from.groundy() != 0) {
+    set_groundy(from.groundy());
+  }
 }
 
 void PackC3::CopyFrom(const ::google::protobuf::Message& from) {
@@ -2794,6 +3213,7 @@ void PackC3::InternalSwap(PackC3* other) {
   std::swap(by_, other->by_);
   std::swap(horizontal_, other->horizontal_);
   blockarr_.UnsafeArenaSwap(&other->blockarr_);
+  std::swap(groundy_, other->groundy_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -2879,6 +3299,20 @@ PackC3::blockarr() const {
 PackC3::mutable_blockarr() {
   // @@protoc_insertion_point(field_mutable_list:TropPackets.PackC3.blockArr)
   return &blockarr_;
+}
+
+// optional uint32 groundY = 5;
+void PackC3::clear_groundy() {
+  groundy_ = 0u;
+}
+ ::google::protobuf::uint32 PackC3::groundy() const {
+  // @@protoc_insertion_point(field_get:TropPackets.PackC3.groundY)
+  return groundy_;
+}
+ void PackC3::set_groundy(::google::protobuf::uint32 value) {
+  
+  groundy_ = value;
+  // @@protoc_insertion_point(field_set:TropPackets.PackC3.groundY)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -3221,6 +3655,296 @@ void PackD0::clear_type() {
   
   type_ = value;
   // @@protoc_insertion_point(field_set:TropPackets.PackD0.type)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int PackD1::kBXFieldNumber;
+const int PackD1::kGroundYFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+PackD1::PackD1()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:TropPackets.PackD1)
+}
+
+void PackD1::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+PackD1::PackD1(const PackD1& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:TropPackets.PackD1)
+}
+
+void PackD1::SharedCtor() {
+    _is_default_instance_ = false;
+  _cached_size_ = 0;
+  bx_ = GOOGLE_LONGLONG(0);
+  groundy_ = 0u;
+}
+
+PackD1::~PackD1() {
+  // @@protoc_insertion_point(destructor:TropPackets.PackD1)
+  SharedDtor();
+}
+
+void PackD1::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PackD1::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PackD1::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PackD1_descriptor_;
+}
+
+const PackD1& PackD1::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Trop_2eproto();
+  return *default_instance_;
+}
+
+PackD1* PackD1::default_instance_ = NULL;
+
+PackD1* PackD1::New(::google::protobuf::Arena* arena) const {
+  PackD1* n = new PackD1;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void PackD1::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<PackD1*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(bx_, groundy_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
+}
+
+bool PackD1::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:TropPackets.PackD1)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int64 bX = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &bx_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_groundY;
+        break;
+      }
+
+      // optional uint32 groundY = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_groundY:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &groundy_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:TropPackets.PackD1)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:TropPackets.PackD1)
+  return false;
+#undef DO_
+}
+
+void PackD1::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:TropPackets.PackD1)
+  // optional int64 bX = 1;
+  if (this->bx() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->bx(), output);
+  }
+
+  // optional uint32 groundY = 2;
+  if (this->groundy() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->groundy(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:TropPackets.PackD1)
+}
+
+::google::protobuf::uint8* PackD1::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:TropPackets.PackD1)
+  // optional int64 bX = 1;
+  if (this->bx() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->bx(), target);
+  }
+
+  // optional uint32 groundY = 2;
+  if (this->groundy() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->groundy(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:TropPackets.PackD1)
+  return target;
+}
+
+int PackD1::ByteSize() const {
+  int total_size = 0;
+
+  // optional int64 bX = 1;
+  if (this->bx() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->bx());
+  }
+
+  // optional uint32 groundY = 2;
+  if (this->groundy() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->groundy());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PackD1::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const PackD1* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const PackD1>(
+          &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PackD1::MergeFrom(const PackD1& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from.bx() != 0) {
+    set_bx(from.bx());
+  }
+  if (from.groundy() != 0) {
+    set_groundy(from.groundy());
+  }
+}
+
+void PackD1::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PackD1::CopyFrom(const PackD1& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PackD1::IsInitialized() const {
+
+  return true;
+}
+
+void PackD1::Swap(PackD1* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void PackD1::InternalSwap(PackD1* other) {
+  std::swap(bx_, other->bx_);
+  std::swap(groundy_, other->groundy_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata PackD1::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PackD1_descriptor_;
+  metadata.reflection = PackD1_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// PackD1
+
+// optional int64 bX = 1;
+void PackD1::clear_bx() {
+  bx_ = GOOGLE_LONGLONG(0);
+}
+ ::google::protobuf::int64 PackD1::bx() const {
+  // @@protoc_insertion_point(field_get:TropPackets.PackD1.bX)
+  return bx_;
+}
+ void PackD1::set_bx(::google::protobuf::int64 value) {
+  
+  bx_ = value;
+  // @@protoc_insertion_point(field_set:TropPackets.PackD1.bX)
+}
+
+// optional uint32 groundY = 2;
+void PackD1::clear_groundy() {
+  groundy_ = 0u;
+}
+ ::google::protobuf::uint32 PackD1::groundy() const {
+  // @@protoc_insertion_point(field_get:TropPackets.PackD1.groundY)
+  return groundy_;
+}
+ void PackD1::set_groundy(::google::protobuf::uint32 value) {
+  
+  groundy_ = value;
+  // @@protoc_insertion_point(field_set:TropPackets.PackD1.groundY)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -3864,6 +4588,392 @@ void PackF0::clear_chattype() {
   
   chattype_ = value;
   // @@protoc_insertion_point(field_set:TropPackets.PackF0.chatType)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int PackG0::kMXFieldNumber;
+const int PackG0::kMYFieldNumber;
+const int PackG0::kMVXFieldNumber;
+const int PackG0::kMVYFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+PackG0::PackG0()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:TropPackets.PackG0)
+}
+
+void PackG0::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+PackG0::PackG0(const PackG0& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:TropPackets.PackG0)
+}
+
+void PackG0::SharedCtor() {
+    _is_default_instance_ = false;
+  _cached_size_ = 0;
+  mx_ = 0;
+  my_ = 0;
+  mvx_ = 0;
+  mvy_ = 0;
+}
+
+PackG0::~PackG0() {
+  // @@protoc_insertion_point(destructor:TropPackets.PackG0)
+  SharedDtor();
+}
+
+void PackG0::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PackG0::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PackG0::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PackG0_descriptor_;
+}
+
+const PackG0& PackG0::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Trop_2eproto();
+  return *default_instance_;
+}
+
+PackG0* PackG0::default_instance_ = NULL;
+
+PackG0* PackG0::New(::google::protobuf::Arena* arena) const {
+  PackG0* n = new PackG0;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void PackG0::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<PackG0*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(mx_, mvy_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
+}
+
+bool PackG0::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:TropPackets.PackG0)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional float mX = 1;
+      case 1: {
+        if (tag == 13) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &mx_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(21)) goto parse_mY;
+        break;
+      }
+
+      // optional float mY = 2;
+      case 2: {
+        if (tag == 21) {
+         parse_mY:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &my_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(29)) goto parse_mVX;
+        break;
+      }
+
+      // optional float mVX = 3;
+      case 3: {
+        if (tag == 29) {
+         parse_mVX:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &mvx_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(37)) goto parse_mVY;
+        break;
+      }
+
+      // optional float mVY = 4;
+      case 4: {
+        if (tag == 37) {
+         parse_mVY:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &mvy_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:TropPackets.PackG0)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:TropPackets.PackG0)
+  return false;
+#undef DO_
+}
+
+void PackG0::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:TropPackets.PackG0)
+  // optional float mX = 1;
+  if (this->mx() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(1, this->mx(), output);
+  }
+
+  // optional float mY = 2;
+  if (this->my() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->my(), output);
+  }
+
+  // optional float mVX = 3;
+  if (this->mvx() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->mvx(), output);
+  }
+
+  // optional float mVY = 4;
+  if (this->mvy() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->mvy(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:TropPackets.PackG0)
+}
+
+::google::protobuf::uint8* PackG0::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:TropPackets.PackG0)
+  // optional float mX = 1;
+  if (this->mx() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(1, this->mx(), target);
+  }
+
+  // optional float mY = 2;
+  if (this->my() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->my(), target);
+  }
+
+  // optional float mVX = 3;
+  if (this->mvx() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->mvx(), target);
+  }
+
+  // optional float mVY = 4;
+  if (this->mvy() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->mvy(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:TropPackets.PackG0)
+  return target;
+}
+
+int PackG0::ByteSize() const {
+  int total_size = 0;
+
+  // optional float mX = 1;
+  if (this->mx() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // optional float mY = 2;
+  if (this->my() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // optional float mVX = 3;
+  if (this->mvx() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // optional float mVY = 4;
+  if (this->mvy() != 0) {
+    total_size += 1 + 4;
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PackG0::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const PackG0* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const PackG0>(
+          &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PackG0::MergeFrom(const PackG0& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from.mx() != 0) {
+    set_mx(from.mx());
+  }
+  if (from.my() != 0) {
+    set_my(from.my());
+  }
+  if (from.mvx() != 0) {
+    set_mvx(from.mvx());
+  }
+  if (from.mvy() != 0) {
+    set_mvy(from.mvy());
+  }
+}
+
+void PackG0::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PackG0::CopyFrom(const PackG0& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PackG0::IsInitialized() const {
+
+  return true;
+}
+
+void PackG0::Swap(PackG0* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void PackG0::InternalSwap(PackG0* other) {
+  std::swap(mx_, other->mx_);
+  std::swap(my_, other->my_);
+  std::swap(mvx_, other->mvx_);
+  std::swap(mvy_, other->mvy_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata PackG0::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PackG0_descriptor_;
+  metadata.reflection = PackG0_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// PackG0
+
+// optional float mX = 1;
+void PackG0::clear_mx() {
+  mx_ = 0;
+}
+ float PackG0::mx() const {
+  // @@protoc_insertion_point(field_get:TropPackets.PackG0.mX)
+  return mx_;
+}
+ void PackG0::set_mx(float value) {
+  
+  mx_ = value;
+  // @@protoc_insertion_point(field_set:TropPackets.PackG0.mX)
+}
+
+// optional float mY = 2;
+void PackG0::clear_my() {
+  my_ = 0;
+}
+ float PackG0::my() const {
+  // @@protoc_insertion_point(field_get:TropPackets.PackG0.mY)
+  return my_;
+}
+ void PackG0::set_my(float value) {
+  
+  my_ = value;
+  // @@protoc_insertion_point(field_set:TropPackets.PackG0.mY)
+}
+
+// optional float mVX = 3;
+void PackG0::clear_mvx() {
+  mvx_ = 0;
+}
+ float PackG0::mvx() const {
+  // @@protoc_insertion_point(field_get:TropPackets.PackG0.mVX)
+  return mvx_;
+}
+ void PackG0::set_mvx(float value) {
+  
+  mvx_ = value;
+  // @@protoc_insertion_point(field_set:TropPackets.PackG0.mVX)
+}
+
+// optional float mVY = 4;
+void PackG0::clear_mvy() {
+  mvy_ = 0;
+}
+ float PackG0::mvy() const {
+  // @@protoc_insertion_point(field_get:TropPackets.PackG0.mVY)
+  return mvy_;
+}
+ void PackG0::set_mvy(float value) {
+  
+  mvy_ = value;
+  // @@protoc_insertion_point(field_set:TropPackets.PackG0.mVY)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

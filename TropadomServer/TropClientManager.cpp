@@ -35,7 +35,7 @@ bool TropClientManager::removeClient(IDType id)
 		TropPackets::PackB1 packB1;
 		packB1.set_id(id);
 		opB1->setData(boost::make_shared <std::string>(packB1.SerializeAsString()));
-		sendToAll(opB1);
+		sendToAll(opB1); 
 	}
 }
 

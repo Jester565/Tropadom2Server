@@ -45,6 +45,9 @@
     <ClCompile Include="CaveManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DepositManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pinger.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CaveManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DepositManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

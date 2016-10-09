@@ -58,7 +58,7 @@ void TropCore::draw()
 			}
 			if (terrainManager->init(seed))
 			{
-				server->run(5652);
+				server->run(SERVER_PORT);
 				serverOn = true;
 				seedStr = std::to_string(terrainManager->seed);
 			}
@@ -72,7 +72,7 @@ void TropCore::draw()
 			{
 				if (terrainManager->init(saveFileName))
 				{
-					server->run(5652);
+					server->run(SERVER_PORT);
 					serverOn = true;
 					seedStr = std::to_string(terrainManager->seed);
 				}

@@ -123,6 +123,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CaveManager.cpp" />
+    <ClCompile Include="DepositManager.cpp" />
     <ClCompile Include="Packets\Trop.pb.cc" />
     <ClCompile Include="PerlinManager.cpp" />
     <ClCompile Include="Pinger.cpp" />
@@ -135,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CaveManager.h" />
+    <ClInclude Include="DepositManager.h" />
     <ClInclude Include="Packets\Trop.pb.h" />
     <ClInclude Include="PerlinManager.h" />
     <ClInclude Include="Pinger.h" />

@@ -7,6 +7,8 @@ class TropServer;
 class Pinger;
 class TerrainManager;
 
+static const int SERVER_PORT = 4065;
+
 class TropCore : public AllegroExt::Core
 {
 public:

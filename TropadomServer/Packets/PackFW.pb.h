@@ -225,6 +225,12 @@ class PackHeaderOut : public ::google::protobuf::Message {
   ::google::protobuf::uint32 sentfromid() const;
   void set_sentfromid(::google::protobuf::uint32 value);
 
+  // optional uint32 dataSize = 3;
+  void clear_datasize();
+  static const int kDataSizeFieldNumber = 3;
+  ::google::protobuf::uint32 datasize() const;
+  void set_datasize(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:ProtobufPackets.PackHeaderOut)
  private:
 
@@ -232,6 +238,7 @@ class PackHeaderOut : public ::google::protobuf::Message {
   bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr lockey_;
   ::google::protobuf::uint32 sentfromid_;
+  ::google::protobuf::uint32 datasize_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_PackFW_2eproto();
   friend void protobuf_AssignDesc_PackFW_2eproto();
@@ -408,6 +415,20 @@ inline void PackHeaderOut::set_sentfromid(::google::protobuf::uint32 value) {
   
   sentfromid_ = value;
   // @@protoc_insertion_point(field_set:ProtobufPackets.PackHeaderOut.sentFromID)
+}
+
+// optional uint32 dataSize = 3;
+inline void PackHeaderOut::clear_datasize() {
+  datasize_ = 0u;
+}
+inline ::google::protobuf::uint32 PackHeaderOut::datasize() const {
+  // @@protoc_insertion_point(field_get:ProtobufPackets.PackHeaderOut.dataSize)
+  return datasize_;
+}
+inline void PackHeaderOut::set_datasize(::google::protobuf::uint32 value) {
+  
+  datasize_ = value;
+  // @@protoc_insertion_point(field_set:ProtobufPackets.PackHeaderOut.dataSize)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
