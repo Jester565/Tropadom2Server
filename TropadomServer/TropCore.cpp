@@ -79,9 +79,14 @@ void TropCore::draw()
 			}
 		}
 	}
+	if (AllegroExt::Input::InputManager::keyPressed('l')) {
+			this->shutDown();
+	}
 }
 
 
 TropCore::~TropCore()
 {
+		delete server;
+		server = nullptr;
 }

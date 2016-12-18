@@ -37,6 +37,7 @@ bool TropClientManager::removeClient(IDType id)
 		opB1->setData(boost::make_shared <std::string>(packB1.SerializeAsString()));
 		sendToAll(opB1); 
 	}
+	return success;
 }
 
 std::vector<TropClient*> TropClientManager::getInRange(int64_t bX, int64_t bY, TropClient* exception)
