@@ -1,5 +1,5 @@
 #include "TerrainManager.h"
-#include "Packets/Trop.pb.h"
+#include "Trop.pb.h"
 #include "PerlinManager.h"
 #include "CaveManager.h"
 #include "TropServer.h"
@@ -12,9 +12,9 @@
 #include <iostream>
 
 TerrainManager::TerrainManager(TropServer* tropServer)
-	:PKeyOwner(tropServer->getPacketManager()), tropServer(tropServer)
+	:PKeyOwner(), tropServer(tropServer)
 {
-	
+	PKeyOwner::attach(tropServer->getPacketManager());
 }
 
 bool TerrainManager::init(int64_t seed)
@@ -36,7 +36,7 @@ bool TerrainManager::init(const std::string & saveFileName)
 void TerrainManager::merge(std::list<TerrainSection>::iterator iter1, std::list<TerrainSection>::iterator iter2)
 {
 	iter1->blockColumns.splice(iter1->blockColumns.end(), iter2->blockColumns);
-	((TropClientManager*)tropServer->getClientManager())->replaceTerrainSection(iter2, iter1);
+	boost::static_pointer_cast<TropClientManager>(tropServer->getClientManager())->replaceTerrainSection(iter2, iter1);
 	terrainSections.erase(iter2);
 }
 
@@ -324,15 +324,16 @@ TerrainManager::~TerrainManager()
 bool TerrainManager::init()
 {
 	worldGenerator = new WorldGenerator(seed);
-	addKey(new PKey("C0", this, &TerrainManager::keyC0));
-	addKey(new PKey("C2", this, &TerrainManager::keyC2));
-	addKey(new PKey("D0", this, &TerrainManager::keyD0));
+	addKey(boost::make_shared<PKey>("C0", this, &TerrainManager::keyC0));
+	addKey(boost::make_shared<PKey>("C2", this, &TerrainManager::keyC2));
+	addKey(boost::make_shared<PKey>("D0", this, &TerrainManager::keyD0));
+	addKey(boost::make_shared<PKey>("G0", this, &TerrainManager::keyG0));
 	return true;
 }
 
 void TerrainManager::keyC0(boost::shared_ptr<IPacket> iPack)
 {
-	TropClient* sender = (TropClient*)tropServer->getClientManager()->getClient(iPack->getSentFromID());
+	auto sender = boost::static_pointer_cast<TropClient>(iPack->getSender());
 	TropPackets::PackC0 packC0;
 	packC0.ParseFromString(*iPack->getData());
 	int64_t bX = packC0.bx();
@@ -375,7 +376,7 @@ void TerrainManager::keyC0(boost::shared_ptr<IPacket> iPack)
 void TerrainManager::keyC2(boost::shared_ptr<IPacket> iPack)
 {
 	c2RecieveCount++;
-	TropClient* sender = (TropClient*)tropServer->getClientManager()->getClient(iPack->getSentFromID());
+	auto sender = boost::static_pointer_cast<TropClient>(iPack->getSender());
 	TropPackets::PackC2 packC2;
 	packC2.ParseFromString(*iPack->getData());
 	TropPackets::PackC3 packC3;
@@ -487,11 +488,11 @@ void TerrainManager::keyC2(boost::shared_ptr<IPacket> iPack)
 	opC3->addSendToID(sender->getID());
 	opC3->setData(boost::make_shared<std::string>(packC3.SerializeAsString()));
 	tropServer->getClientManager()->send(opC3);
-}
+} 
 
 void TerrainManager::keyD0(boost::shared_ptr<IPacket> iPack)
 {
-	TropClient* sender = (TropClient*)tropServer->getClientManager()->getClient(iPack->getSentFromID());
+	auto sender = boost::static_pointer_cast<TropClient>(iPack->getSender());
 	TropPackets::PackD0 packD0;
 	packD0.ParseFromString(*iPack->getData());
 	sender->getTerrainTracker()->posMutex.lock();
@@ -506,8 +507,8 @@ void TerrainManager::keyD0(boost::shared_ptr<IPacket> iPack)
 		bool groundHChanged = false;
 		it->setBlock(packD0.by(), packD0.type(), &groundHChanged);
 		it->blocksMutex.unlock();
-		TropClientManager* tropClientManager = (TropClientManager*)((TropServer*)tropServer)->getClientManager();
-		std::vector <TropClient*> inRangeClients = tropClientManager->getInRange(packD0.bx(), packD0.by(), sender);
+		auto tropClientManager = boost::static_pointer_cast<TropClientManager>(tropServer->getClientManager());
+		auto inRangeClients = tropClientManager->getInRange(packD0.bx(), packD0.by(), sender);
 		if (inRangeClients.size() > 0)
 		{
 			boost::shared_ptr <OPacket> opD0(new OPacket("D0", sender->getID()));
@@ -534,6 +535,11 @@ void TerrainManager::keyD0(boost::shared_ptr<IPacket> iPack)
 		}
 	}
 	sender->getTerrainTracker()->posMutex.unlock();
+}
+
+void TerrainManager::keyG0(boost::shared_ptr<IPacket> iPack)
+{
+	boost::static_pointer_cast<TropClientManager>(tropServer->getClientManager())->sendToAllExceptUDP(iPack->toOPack(true), iPack->getSenderID());
 }
 
 BlockColumn::BlockColumn(int64_t bX, uint32_t groundY)

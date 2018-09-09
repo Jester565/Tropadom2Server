@@ -10,13 +10,15 @@ class TropClientManager : public ClientManagerCPP, public PKeyOwner
 {
 public:
 	static const int RANGE_OFF = 2;
-	TropClientManager(Server* server);
+	TropClientManager(boost::shared_ptr<UDPManager> udpManager);
 
-	virtual Client* addClient(boost::shared_ptr <TCPConnection> tcpConnection);
+	virtual void init(boost::shared_ptr<PacketManager> packetManager);
+
+	virtual void TropClientManager::addClient(ClientPtr client) override;
 
 	virtual bool removeClient(IDType id) override;
 
-	std::vector <TropClient*> getInRange(int64_t bX, int64_t bY, TropClient* exception = nullptr);
+	std::vector<boost::shared_ptr<TropClient>> TropClientManager::getInRange(int64_t bX, int64_t bY, boost::shared_ptr<TropClient> exception = nullptr);
 
 	void draw();
 

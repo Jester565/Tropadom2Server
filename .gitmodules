@@ -1,0 +1,6 @@
+[submodule "AsyncCppServer"]
+	path = AsyncCppServer
+	url = https://github.com/Jester565/AsyncCppServer.git
+[submodule "AllegroExt"]
+	path = AllegroExt
+	url = https://github.com/Jester565/AllegroExt.git

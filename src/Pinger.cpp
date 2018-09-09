@@ -1,6 +1,6 @@
 #include "Pinger.h"
 #include "TropClient.h"
-#include "Packets/Trop.pb.h"
+#include "Trop.pb.h"
 #include <IPacket.h>
 #include <OPacket.h>
 #include <Server.h>
@@ -9,9 +9,10 @@
 #include <chrono>
 
 Pinger::Pinger(Server* server)
-	:PKeyOwner(server->getPacketManager()), cm(server->getClientManager())
+	:PKeyOwner(), cm(server->getClientManager())
 {
-	addKey(new PKey("A0", this, &Pinger::keyA0));
+	PKeyOwner::attach(server->getPacketManager());
+	addKey(boost::make_shared<PKey>("A0", this, &Pinger::keyA0));
 	lastUpdateTime = std::chrono::duration_cast <std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
@@ -44,7 +45,7 @@ void Pinger::keyA0(boost::shared_ptr<IPacket> iPack)
 	packA0.ParseFromString(*iPack->getData());
 	int64_t timeStamp = packA0.timestamp();
 	int64_t timeDif = std::chrono::duration_cast <std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timeStamp;
-	TropClient* sender = (TropClient*)cm->getClient(iPack->getSentFromID());
+	auto sender = boost::static_pointer_cast<TropClient>(iPack->getSender());
 	if (sender->getPing() > MAX_PING && timeDif > MAX_PING)
 	{
 		cm->removeClient(sender->getID());

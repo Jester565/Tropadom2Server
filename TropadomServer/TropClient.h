@@ -7,7 +7,7 @@ class TerrainTracker;
 class TropClient : public ClientCPP
 {
 public:
-	TropClient(boost::shared_ptr<TCPConnection> tcpConnection, Server* server, IDType cID);
+	TropClient(IDType cID, boost::shared_ptr<TCPConnection> tcpConnection, boost::shared_ptr<PacketManager> packetManager, ClientDisconnectHandler handler = nullptr);
 
 	uint16_t getPing()
 	{

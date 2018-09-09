@@ -11,8 +11,8 @@ class PerlinManager;
 class DepositManager;
 
 const static int COL_HEIGHT = 600;
-const static int LOAD_COL_W = 100;
-const static int LOAD_COL_H = 68;
+const static int LOAD_COL_W = 200;
+const static int LOAD_COL_H = 100;
 
 static const std::unordered_map <uint16_t, bool> TransparentTypes{ {0, true}, {1, false}, {2, false}, {3, false}, {4, false} };
 
@@ -111,6 +111,8 @@ private:
 	void keyC2(boost::shared_ptr<IPacket> iPack);
 
 	void keyD0(boost::shared_ptr<IPacket> iPack);
+
+	void keyG0(boost::shared_ptr<IPacket> iPack);
 
 	boost::shared_mutex terrainSectionsMutex;
 

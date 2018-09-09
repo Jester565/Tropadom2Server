@@ -8,7 +8,7 @@ public:
 
 	void createManagers() override;
 
-	Client* createClient(boost::shared_ptr<TCPConnection> tcpConnection, IDType id);
+	ClientPtr createClient(boost::shared_ptr<TCPConnection> tcpConnection, IDType id);
 
 	~TropServer();
 };

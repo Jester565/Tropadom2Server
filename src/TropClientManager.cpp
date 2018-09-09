@@ -1,29 +1,29 @@
 #include "TropClientManager.h"
-#include "Packets/Trop.pb.h"
+#include "Trop.pb.h"
 #include "TropClient.h"
 #include "TerrainManager.h"
 #include <OPacket.h>
 #include <Server.h>
 #include <boost/thread.hpp>
 
-TropClientManager::TropClientManager(Server* server)
-	:ClientManagerCPP(server), PKeyOwner(server->getPacketManager())
+TropClientManager::TropClientManager(boost::shared_ptr<UDPManager> udpManager)
+	:ClientManagerCPP(udpManager), PKeyOwner()
 {
 	
 }
 
-Client * TropClientManager::addClient(boost::shared_ptr<TCPConnection> tcpConnection)
+void TropClientManager::init(boost::shared_ptr<PacketManager> packetManager) {
+	PKeyOwner::attach(packetManager);
+}
+
+void TropClientManager::addClient(ClientPtr client)
 {
-	Client* client = ClientManager::addClient(tcpConnection);
-	if (client != nullptr)
-	{
-		boost::shared_ptr <OPacket> opB2(new OPacket("B2", 0));
-		TropPackets::PackB2 packB2;
-		packB2.set_id(client->getID());
-		opB2->setData(boost::make_shared <std::string>(packB2.SerializeAsString()));
-		send(opB2, client);
-	}
-	return client;
+	ClientManagerCPP::addClient(client);
+	boost::shared_ptr <OPacket> opB2(new OPacket("B2", 0));
+	TropPackets::PackB2 packB2;
+	packB2.set_id(client->getID());
+	opB2->setData(boost::make_shared <std::string>(packB2.SerializeAsString()));
+	send(opB2, client);
 }
 
 bool TropClientManager::removeClient(IDType id)
@@ -40,15 +40,15 @@ bool TropClientManager::removeClient(IDType id)
 	return success;
 }
 
-std::vector<TropClient*> TropClientManager::getInRange(int64_t bX, int64_t bY, TropClient* exception)
+std::vector<boost::shared_ptr<TropClient>> TropClientManager::getInRange(int64_t bX, int64_t bY, boost::shared_ptr<TropClient> exception)
 {
-	std::vector <TropClient*> clientsInRange;
+	std::vector <boost::shared_ptr<TropClient>> clientsInRange;
 	boost::shared_lock <boost::shared_mutex> lock(clientMapMutex);
 	for (auto it = clients.begin(); it != clients.end(); it++)
 	{
 		if (it->second != exception)
 		{
-			TropClient* tropClient = (TropClient*)it->second;
+			auto tropClient = boost::static_pointer_cast<TropClient>(it->second);
 			tropClient->getTerrainTracker()->posMutex.lock();
 			int64_t lowBX = tropClient->getTerrainTracker()->bcIterLow->bX - RANGE_OFF;
 			int64_t highBX = tropClient->getTerrainTracker()->bcIterHigh->bX + RANGE_OFF;
@@ -73,7 +73,7 @@ void TropClientManager::draw()
 	std::string total = "Clients\n";
 	for (auto it = clients.begin(); it != clients.end(); it++)
 	{
-		total += ((TropClient*)it->second)->getSummary();
+		total += boost::static_pointer_cast<TropClient>(it->second)->getSummary();
 		total += "\n\n";
 	}
 	clientInfo.drawText(total, 10, 10, 50, 0, 0, 0, 255);
@@ -84,7 +84,7 @@ void TropClientManager::replaceTerrainSection(std::list <TerrainSection>::iterat
 	boost::shared_lock <boost::shared_mutex> lock(clientMapMutex);
 	for (auto it = clients.begin(); it != clients.end(); it++)
 	{
-		TerrainTracker* terTrack = ((TropClient*)it->second)->getTerrainTracker();
+		TerrainTracker* terTrack = boost::static_pointer_cast<TropClient>(it->second)->getTerrainTracker();
 		//write lock terTrack->tsIter
 		terTrack->posMutex.lock();
 		if (terTrack->tsIter == searchTS)

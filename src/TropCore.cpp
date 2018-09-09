@@ -38,7 +38,7 @@ void TropCore::draw()
 		pinger->checkTimer();
 		if (AllegroExt::Input::InputManager::keyPressed('p'))
 		{
-			((TropClientManager*)server->getClientManager())->draw();
+			boost::static_pointer_cast<TropClientManager>(server->getClientManager())->draw();
 		}
 		if (AllegroExt::Input::InputManager::keyTyped('v'))
 		{

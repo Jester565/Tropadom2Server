@@ -26,5 +26,5 @@ private:
 
 	int64_t lastUpdateTime;
 
-	ClientManager* cm;
+	boost::shared_ptr<ClientManager> cm;
 };

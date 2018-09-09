@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+package TropPackets;
+
+message PackA0 {
+	int64 timestamp = 1;
+}
+
+message PackB0 {
+    string name = 1;
+    float mx = 2;
+    float my = 3;
+}
+
+message PackB1 {
+    uint32 id = 1;
+    string name = 2;
+    float mx = 3;
+    float my = 4;
+}
+
+message PackB2 {
+    uint32 id = 1;
+}
+
+message PackB3 {
+    string name = 1;
+    float mx = 2;
+    float my = 3;
+}
+
+message PackC0 {
+    int64 bx = 1;
+    int64 by = 2;
+}
+
+message PackC1 {
+    repeated uint32 groundys = 1 [packed=true];
+    repeated uint32 blockarr = 2 [packed=true];
+}
+
+message PackC2 {
+    bool horizontal = 1;
+    bool shiftpositive = 2;
+}
+
+message PackC3 {
+    int64 bx = 1;
+    int64 by = 2;
+    uint32 groundy = 3;
+    repeated uint32 blockarr = 4 [packed=true];
+    bool horizontal = 5;
+}
+
+
+message PackD0 {
+    int64 bx = 1;
+    int64 by = 2;
+    uint32 type = 3;
+}
+
+message PackD1 {
+    int64 bx = 1;
+    uint32 groundy = 2;
+}
+
+message PackE0 {
+	int64 bx = 1;
+	repeated uint32 blockTypes = 2 [packed=true];
+}
+
+message PackF0 {
+    int32 chattype = 1;
+    string msg = 2;
+}
+
+message PackG0 {
+    float mx = 1;
+    float my = 2;
+    float mvx = 3;
+    float mvy = 4;
+}

@@ -173,7 +173,7 @@ std::vector<std::pair<int, int>> CaveManager::genCavePoints(int bX)
 							if (dis < rad)
 							{
 								return true;
-							}
+							}u
 						}
 					}
 				}
