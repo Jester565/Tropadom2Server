@@ -1,6 +1,6 @@
 # Tropadom2Server
 Asynchronous UDP and TCP server for [Tropadom2](https://github.com/Jester565/Tropadom2) utilizing Boost Asio and Google Protocol Buffers. The Tropadom2Server manages all terrain generation and client communication.
-## Installation
+## Building
 ***Clone repository with --recurse-submodules flag***  
 Requirements: Boost (1.68.0), Allegro (5.2.4), and Protobuf (3.6.1)  
 
