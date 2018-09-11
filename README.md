@@ -28,7 +28,7 @@ Requirements: Boost (1.68.0), Allegro (5.2.4), and Protobuf (3.6.1)
 ```
 mkdir build
 cd build
-cmake .. -G "Visual Studio 15 2017" -A x64 -T host=x64 -Dboxlibdir="(Box2D Directory)\Build\bin\x86_64\Release\" -Dboxincludedir="(Box2D Directory)"        #For Ubuntu don't include -G option
+cmake .. -G "Visual Studio 15 2017" -A x64 -T host=x64        #For Ubuntu don't include -G option
 ```
 Run make or build the solution  
 Set TropadomServer as Startup Project after building on Visual Studio
